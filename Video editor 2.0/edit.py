@@ -5,7 +5,7 @@ import time
 import os
 
 
-def rand_clips(seconds=30, video_length=10 * 60 * 60, **kwargs):
+def rand_clips(seconds=30, video_length=10 * 60 * 60):
     i = video_length
     k = []
     while True:
@@ -32,12 +32,9 @@ def rand_clips(seconds=30, video_length=10 * 60 * 60, **kwargs):
     sample_list = []
     loop_start = time.time()
     while True:
-        if time.time() - loop_start >= 1 and kwargs["processing_print"]:
-            print("Please Wait, Processing...")
-            kwargs["processing_print"] = False
         if time.time() - loop_start >= 5:
             return rand_clips(
-                seconds=seconds, video_length=video_length, processing_print=False
+                seconds=seconds, video_length=video_length
             )
         if i <= 5:
             sample = random.choice(l)
