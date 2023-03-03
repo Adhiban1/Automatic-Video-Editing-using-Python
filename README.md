@@ -8,7 +8,7 @@ Double click `concat.bat` file to concat all the videos into one video and all a
 
 Then open the video and audio files and add the clips that you want in `clips.py`.
 
-```
+```python
 clips = [
     ("0:0:0", "0:1:0"), 
     ("0:2:0", "0:3:54")
@@ -32,7 +32,7 @@ I am using `conda`. But you can modify the `bat` file as your wish.
 First move or copy your video into the `video` folder inside `Video editor 1.0` folder and audio to `Video editor 1.0\audio`.
 
 Go to `Video editor 1.0\clips.txt`
-```
+```python
 0:38-0:48
 0:53-1:00
 1:07-1:16
