@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Videos</title>
+</head>
+<body>
+    <a href="{{ url_for('delete_outputs') }}">delete videos</a>
+    <h1>Uploaded Videos</h1>
+
+    {% if video_files %}
+        {% for i, video in video_files %}
+            <video width="75%" controls>
+                <source src="{{ url_for('download_file', filename=video) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br>
+            <a href="{{ url_for('download_file', filename=video) }}" download>{{i+1}}. Download {{ video }}</a>
+            <br>
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>No videos uploaded yet.</p>
+    {% endif %}
+
+</body>
+</html>

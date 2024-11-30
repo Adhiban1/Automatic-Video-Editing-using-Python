@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Video Editing using Python</title>
+</head>
+<body>
+    <a href="/view_videos" target="_blank">view videos</a>
+    <h1>Upload Your Files</h1>
+    
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="video">Upload Video File</label><br>
+        <input type="file" name="video" accept="video/*" multiple><br><br>
+
+        <label for="audio">Upload Audio File:</label><br>
+        <input type="file" name="audio" accept="audio/*"><br><br>
+
+        <label for="string1">audio start:</label><br>
+        <input type="text" name="string1" value="0:0"><br><br>
+
+        <label for="string2">audio end:</label><br>
+        <input type="text" name="string2" value="0:0"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

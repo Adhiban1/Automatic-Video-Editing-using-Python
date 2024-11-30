@@ -1,63 +1,103 @@
-# Automatic Video editing using Python
-## Video editor 2.0
-Create `video`, `audio` and `output` folder in `Video editor 2.0` if these folders not exists.
+# Automatic Video Editing using Python  
 
-Move your videos to `video` folder and audios to `audio` folder.
+## Version: 3.0  
 
-Double click `concat.bat` file to concat all the videos into one video and all audios into one audio.
+### Overview  
+This project allows users to upload a video and an audio file. The tool automatically shuffles random clips from the video, combines them with the provided audio, and generates multiple output videos. This process is entirely automated, making it simple and efficient for users to create unique video edits effortlessly.  
 
-Then open the video and audio files and add the clips that you want in `clips.py`.
+---
 
-```python
-clips = [
-    ("0:0:0", "0:1:0"), 
-    ("0:2:0", "0:3:54")
-]
+## Prerequisites  
+- Python version: 3.10  
+- Required libraries: Install them using the command:  
+  ```bash
+  pip install flask rich moviepy
+  ```  
 
-audio_starting_time = "0:1:44"
-```
-And double click `edit.bat` file to run python file or you can run python in terminal by manually typing.
+For users of `Video editor 2.0`, ensure you have **Conda** or modify the `.bat` files to suit your environment.
 
-Python will select random subclips from the video and write the videos `final1.mp4`, `final2.mp4`, ... and `final10.mp4` in `output` folder.
+---
 
-Some videos are good and some videos are not good. Because of random selection of python. So take the video that you like. If all the videos are not good. Then rerun the `edit.bat` file.
+## Instructions for `Video Editor 2.0`  
 
-I am using `conda`. But you can modify the `bat` file as your wish.
+### Setup  
+1. Create the following folders in the `Video editor 2.0` directory if they don’t already exist:  
+   - `video`  
+   - `audio`  
+   - `output`  
 
-### Difference between (Video editor 2.0) and (Automatic Video editing 1.0 & Video editor 2.0)
-`Video editor 2.0` is faster in random selection. But `Automatic Video editing 1.0` is the slowest, it takes more time when the video length is more then 5 minutes.
+2. Move your videos into the `video` folder and your audio files into the `audio` folder.  
 
-`Video editor 2.0` has both trim and random function.
-## Video editor 1.0 & Automatic Video editing 1.0
-First move or copy your video into the `video` folder inside `Video editor 1.0` folder and audio to `Video editor 1.0\audio`.
+### Steps to Use  
+1. **Concatenation**: Double-click the `concat.bat` file.  
+   - This will combine all videos into a single video and all audio files into a single audio file.  
 
-Go to `Video editor 1.0\clips.txt`
-```python
-0:38-0:48
-0:53-1:00
-1:07-1:16
-audio-1:03
-```
-Like this type the `timestamps` that you want and `audio shift`
+2. **Clip Selection**: Open `clips.py` and define the time ranges for video clips:  
+   ```python
+   clips = [
+       ("start_time", "end_time"),
+       ("start_time", "end_time"),
+   ]
+   ```
+   Example:  
+   ```python
+   clips = [
+       ("0:0:0", "0:1:0"), 
+       ("0:2:0", "0:3:54")
+   ]
+   audio_starting_time = "0:1:44"
+   ```
 
-`audio shift` - starting timestamp of the audio.
+3. **Processing Videos**: Double-click `edit.bat` or run the Python file manually via terminal.  
+   - Python will randomly select sub-clips from the video and generate 10 output files: `final1.mp4`, `final2.mp4`, ... `final10.mp4`.  
+   - These files are saved in the `output` folder.  
 
-After filling the time for both video and audio. Then double click run bat file.
+4. **Review and Select**: Check the generated videos. Since clips are selected randomly, some videos may not be satisfactory. If none are good, rerun the `edit.bat` file to generate new videos.  
 
-Then python output the `final video` at `Video editor 1.0\output\final.mp4`.
+### Key Features  
+- Faster random selection compared to `Automatic Video Editing 1.0`.  
+- Includes both **trim** and **random** functions.  
 
-Then move this `final.mp4` video to `Automatic Video editing 1.0\video`. Make sure this `final.mp4` should be the length of less then or equal to 5 minutes.
+---
 
-If your `final.mp4` length increases then python will take more time exponentially.
+## Instructions for `Automatic Video Editing 1.0`  
 
-Then double click `Automatic Video editing 1.0\run.bat`
+### Setup  
+1. Move your videos into the `Automatic Video Editing 1.0\video` folder and audios into `Automatic Video Editing 1.0\audio`.  
 
-At cmd, it asks the starting time (in seconds) and ending time (in second) from the `final.mp4`.
+2. Open `Automatic Video Editing 1.0\clips.txt` and specify timestamps for video and audio:  
+   ```text
+   0:38-0:48
+   0:53-1:00
+   1:07-1:16
+   audio-1:03
+   ```
+   - **Video timestamps**: Define the video clip ranges you want to use.  
+   - **Audio shift**: Specify the starting timestamp of the audio.  
 
-Then python will create 10 videos at `Automatic Video editing 1.0\output`.
+3. Double-click the `run.bat` file.  
 
-These videos are generated by selecting sub clips of the `final.mp4` video and shuffling the clips and adding the audio that located in `Automatic Video editing 1.0\audio`.
+### Generate Final Output  
+1. Python will create the `final.mp4` video in the `Automatic Video Editing 1.0\output` folder.  
+2. Move `final.mp4` to the `Automatic Video Editing 1.0\video` folder. Ensure `final.mp4` is **5 minutes or shorter** to avoid slow processing.  
 
-Check these 10 video. Some videos are not good some videos are good. Take the video that you like.
+3. Double-click `Automatic Video Editing 1.0\run.bat`.  
 
-__This program is in initial condition, I will make some more better improvements in future.__
+4. In the command prompt, input the starting and ending times (in seconds) for the desired segment from `final.mp4`.  
+
+5. Python will generate 10 shuffled subclip videos in the `Automatic Video Editing 1.0\output` folder.  
+
+### Review and Select  
+- Check the generated videos. Since they are randomized, some may not be satisfactory. Select the ones you like.  
+
+---
+
+## Key Features  
+- **Automatic shuffling and combining**: Users only need to upload a video and audio file; the tool handles everything else.  
+- **Randomized output**: Generates multiple video edits, allowing you to choose your favorite.  
+- **Fast processing**: `Video Editor 2.0` is optimized for quicker random selection compared to `Automatic Video Editing 1.0`.  
+
+---
+
+## Future Improvements  
+This program is in its initial stage. Additional features and optimizations will be added in future versions.  
